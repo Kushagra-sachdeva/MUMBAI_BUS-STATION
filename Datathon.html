@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbai Bus Station</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .ticket {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* Additional styling for the menu */
+        .route-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .route-option {
+            width: 48%; /* Adjust the width as needed */
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MUMBAI BUS TICKET</h1>
+    </header>
+
+    <main>
+        <div class="route-menu">
+            <!-- Complete menu of routes -->
+            <div class="route-option">
+                <label for="route1">1. Mumbai Central</label>
+            </div>
+            <div class="route-option">
+                <label for="route2">2. Parel</label>
+            </div>
+            <div class="route-option">
+                <label for="route3">3. Kurla Nehru Nagar</label>
+            </div>
+            <div class="route-option">
+                <label for="route4">4. Panvel</label>
+            </div>
+            <div class="route-option">
+                <label for="route5">5. Uran</label>
+            </div>
+            <div class="route-option">
+                <label for="route6">6. Dadar Asiad</label>
+            </div>
+            <div class="route-option">
+                <label for="route7">7. Maitri Park, Chembur</label>
+            </div>
+            <div class="route-option">
+                <label for="route8">8. Vashi Sector 9</label>
+            </div>
+            <div class="route-option">
+                <label for="route9">9. Vashi Highway</label>
+            </div>
+            <div class="route-option">
+                <label for="route10">10. Dadar BMCT</label>
+            </div>
+            <!-- Add more route options as needed -->
+        </div>
+
+        <form id="ticketForm">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="location">Enter your location:</label>
+            <input type="number" id="location" name="location" required>
+
+            <label for="destination">Enter the destination:</label>
+            <input type="number" id="destination" name="destination" required>
+
+            <label for="proceed">Do you wish to proceed (Y or N):</label>
+            <input type="text" id="proceed" name="proceed" required>
+
+            <label for="numTickets">Enter number of tickets:</label>
+            <input type="number" id="numTickets" name="numTickets" required>
+
+            <button type="button" onclick="generateTicket()">Get Ticket</button>
+        </form>
+
+        <div id="ticketOutput" class="ticket" style="display: none;">
+            <!-- Ticket details will be displayed here -->
+        </div>
+    </main>
+
+    <script>
+        function generateTicket() {
+            // Get form inputs
+            var name = document.getElementById('name').value;
+            var location = document.getElementById('location').value;
+            var destination = document.getElementById('destination').value;
+            var proceed = document.getElementById('proceed').value;
+            var numTickets = document.getElementById('numTickets').value;
+
+            // Mock logic for ticket generation
+            var ticketContent = `
+                -----------------
+                MUMBAI BUS TICKET
+                -----------------
+                Name: ${name}
+                Location: ${location}
+                Destination: ${destination}
+                Proceed: ${proceed}
+                Number of Tickets: ${numTickets}
+                Total Price: $${numTickets * 10}  <!-- Assuming $10 per ticket -->
+            `;
+
+            // Display ticket details
+            document.getElementById('ticketOutput').innerHTML = ticketContent;
+            document.getElementById('ticketOutput').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
